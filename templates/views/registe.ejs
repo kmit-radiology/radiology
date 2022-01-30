@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Form - Radiology</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="register.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+     
+                <form action="/signup" method="POST">
+                    <h2>Signup Form</h2>
+                    <div class="input-box">
+                        <input type="text" name="name" placeholder="Enter your name" required>
+                      </div>
+                    <br>
+                    <div class="input-box">
+                        <input type="text"name="email" placeholder="Enter your email" required>
+                      </div>
+                      <div class="input-box">
+                        <input type="text" name="phno"placeholder="Enter your mobile" required>
+                      </div>
+                      <div class="input-box">
+                        <input type="Organistation" name="Organisation" placeholder="Specify UR Organistation" required>
+                      </div>
+                      <label>Occupation:</label>
+                    
+                    
+                    <select name="ocpt" class="input-box">
+                        <option value="Doctor">Doctor</option>
+                        <option value="Radiologist">Radiologists</option>
+                        <option value="AI interns">AI interns</option>
+                        <option value="Annotation Interns">Annotation interns</option>
+                        <option value="Reaserchers">Reaserchers</option>
+                        <option value="Others">Others
+
+                        </option>
+                    </select>
+        
+                <div class="input-box button">
+
+                    <input type="submit" value="Submit" id="submit" />
+                </div>
+                </form>
+
+    </div>
+
+</body>
+
+</html>

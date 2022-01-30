@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <script>
+        function sendemail(email,pswd=document.getElementById(email).value){
+            console.log("email");
+            var data = {
+                service_id: 'service_w184y9v',
+                template_id: 'template_xulr2fd',
+                user_id: 'user_cy2TwLG1gFRK20CSx5uTO',
+                template_params: {
+                    'to_email':email,
+                    'Password': pswd,
+                }
+    }
+    fetch('https://api.emailjs.com/api/v1.0/email/send',{
+        method:'POST',
+        headers: {
+                     'Content-Type': 'application/json'
+                       // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+        body:JSON.stringify(data),
+
+    })
+    console.log("Succesfull email");
+}
+        function preventrefresh(email,pswd=document.getElementById(email).value){
+            
+            var data={
+                Email:email,
+                password:pswd
+            }
+            console.log(data.password)
+            console.log(email);
+            document.getElementById("submit").addEventListener('click',function(event){
+                event.preventDefault();
+            })
+            fetch('/chan',{
+                method:'POST',
+                headers: {
+                     'Content-Type': 'application/json'
+                       // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+
+                body:JSON.stringify(data)
+            })
+
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <h1>Users Awaiting Access</h1>
+    <form>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Occupation</th>
+            <th>Organisation</th>
+            <th>Password</th>
+            <th>Accept</th>
+
+
+        </tr>
+    <% users.forEach(user =>{%>
+
+        <tr>
+        <td><%=user.Name %></td>
+        <td><%=user.Email%></td>
+        <td><%=user.phone%></td>
+        <td><%=user.Occupation%></td>
+        <td><%=user.Organisation%></td>
+        <td ><input type="text" value="type user password" id="<%=user.Email%>"></td>
+        <td><input type="button" id="submit" onclick="preventrefresh('<%=user.Email%>');sendemail('<%=user.Email%>')" value="accept" ></td>
+        </tr>
+    <%}) %>
+
+    </table>
+    
+</form>
+
+
+    
+</body>
+
+</html>
